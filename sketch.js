@@ -1,11 +1,15 @@
 //Create variables here
-var dog, happyDog, database, foodS, foodStock, foodObj;
+var dog, happyDog, database, foodS, foodStock, foodObj, milkImg;
 
+var food;
+
+var lastFed;
 function preload()
 {
   //load images here
   dog=loadImage("images/dogImg.png");
   happyDog=loadImage("images/dogImg1.png");
+  milkImg=loadImage("images/milk.png")
 }
 
 function setup() {
@@ -15,13 +19,16 @@ function setup() {
   foodStock=database.ref('Food');
   foodStock.on("value",readStock);
 
-  feed=crateButton("Feed the dog");
+  feed=createButton("Feed the dog");
   feed.position(700,95);
   feed.mousePressed(feedDog);
 
   addFood=createButton("Add Food");
   addFood.position(800,95);
   addFood.mousePressed(addFoods);
+
+  foodObj = new Food();
+
 
   
 }
@@ -32,8 +39,10 @@ background(46,139,87);
 //if(keyWentDown(UP_ARROW)){
 //writeStock(foodS);
 //dog.addImage(happyDog);
-display();
+
+foodObj.display();
 textSize(15);
+
 fill("white");
 stroke("black");
 
