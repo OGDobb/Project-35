@@ -3,13 +3,13 @@ var dog, happyDog, database, foodS, foodStock, foodObj, milkImg;
 
 var food;
 
-var lastFed;
+var lastFed=5;
 function preload()
 {
   //load images here
   dog=loadImage("images/dogImg.png");
   happyDog=loadImage("images/dogImg1.png");
-  milkImg=loadImage("images/milk.png")
+  //milkImg=loadImage("images/milk.png")
 }
 
 function setup() {
@@ -47,11 +47,11 @@ fill("white");
 stroke("black");
 
 if(lastFed>=12){
-  Text("Last Feed : "+ lastFed%12 + " PM", 350,30);
+  text("Last Feed : "+ lastFed%12 + " PM", 350,30);
 }else if(lastFed==0){
-  Text("Last Feed : 12 AM", 350,30);
+  text("Last Feed : 12 AM", 350,30);
 }else{
-  Text("Last Feed : "+ lastfed + " AM", 350,30);
+  text("Last Feed : "+ lastFed + " AM", 350,30);
 }
 drawSprites();
 }
